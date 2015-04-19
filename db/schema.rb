@@ -11,12 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419040221) do
+ActiveRecord::Schema.define(version: 20150419100256) do
+
+  create_table "comments", force: true do |t|
+    t.string   "author"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", force: true do |t|
+    t.string   "description"
+    t.string   "content_type"
+    t.string   "filename"
+    t.binary   "binary_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.binary   "image",       limit: 10485760
+    t.text     "description"
+    t.integer  "duration"
+    t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
